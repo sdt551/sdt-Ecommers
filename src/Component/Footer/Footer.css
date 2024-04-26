@@ -1,0 +1,8 @@
+.footer .left-box .detail h3 {
+  color: brown;
+}
+.footer .right-box img {
+  width: 50px;
+  border-radius: 5px;
+  cursor: pointer;
+}

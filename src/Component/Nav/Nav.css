@@ -1,0 +1,36 @@
+* {
+  font-family: sans-serif;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+.mid-header img {
+  width: 50px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.nav img {
+  width: 50px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.nav-item {
+  color: black !important;
+  opacity: 0.5;
+}
+.nav-item:hover {
+  opacity: 1;
+  border-bottom: 1px solid aqua;
+}
+.logo {
+  position: relative;
+}
+.logo h4 {
+  position: absolute;
+  left: 35px;
+}
+.user button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: none;
+}
