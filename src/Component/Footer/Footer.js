@@ -68,14 +68,6 @@ function Footer() {
                 Reiciendis distinctio ducimus animi quisquam ab. Aliquid!
               </p>
             </div>
-
-            <nav class="navbar navbar-light bg-light">
-              <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                  Navbar
-                </a>
-              </div>
-            </nav>
           </div>
         </div>
       </div>
