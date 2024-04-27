@@ -1,0 +1,44 @@
+.left-box .category .box ul li {
+  list-style-type: none;
+  color: #4e4d4d;
+  transition: 0.5s;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+.left-box .category .box ul li:hover {
+  color: black;
+  cursor: pointer;
+}
+
+.right-box .product-box img {
+  height: 100px;
+}
+.product-box .box {
+  position: relative;
+}
+.product-box .icon {
+  right: -20px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+}
+.product-box .icon .h6 {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 10px;
+  color: lightcoral;
+  transition: 0.5s;
+}
+
+.product-box .icon .h6:hover {
+  color: orangered;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.product-box .detail button {
+  background-color: lightblue;
+  transition: 0.5s;
+}
+.product-box .detail button:hover {
+  background-color: rgb(97, 209, 247);
+  color: blue;
+}

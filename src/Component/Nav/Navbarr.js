@@ -1,5 +1,5 @@
 import React from "react";
-import "./Nav.css";
+import "./Navbarr.css";
 import Logo from "./Img/logo.png";
 import { LiaShippingFastSolid } from "react-icons/lia";
 import { CiSearch, CiLogin } from "react-icons/ci";
@@ -9,9 +9,16 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink } from "react-router-dom";
+import { FaUser } from "react-icons/fa6";
 
-function Navbarr() {
+function Navbarr({ search, setSearch, searchProduct }) {
   const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
+  const handleChang = (e) => {
+    e.preventDefault();
+    setSearch(e.target.value);
+  };
+
   return (
     <div className="header w-100">
       <div className="top-header d-flex w-100 py-3 bg-light align-items-center border-bottom border-warning">
@@ -31,11 +38,13 @@ function Navbarr() {
           <input
             className="form-control p-1"
             type="text"
+            value={search}
             name=""
             id=""
             placeholder="Search"
+            onChange={handleChang}
           />
-          <Button>
+          <Button onClick={searchProduct}>
             <CiSearch className="h5" />
           </Button>
         </div>
@@ -76,7 +85,8 @@ function Navbarr() {
               />
             </div>
           ) : (
-            <div className="text-dark">
+            <div className="text-warning d-flex align-items-center">
+              <FaUser className="me-2 border rounded p-1 h4" />
               <h5>Please login</h5>
             </div>
           )}
@@ -92,8 +102,8 @@ function Navbarr() {
               <NavLink className="nav-link px-2 nav-item" to="/shop">
                 Shop
               </NavLink>
-              <NavLink className="nav-link px-2 nav-item" to="/collection">
-                Collection
+              <NavLink className="nav-link px-2 nav-item" to="/cart">
+                Cart
               </NavLink>
               <NavLink className="nav-link px-2 nav-item" to="/about">
                 About

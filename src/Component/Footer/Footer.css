@@ -6,3 +6,38 @@
   border-radius: 5px;
   cursor: pointer;
 }
+.bottom h3 {
+  text-transform: uppercase;
+}
+.bottom ul li {
+  list-style: none;
+  color: #5f5e5e;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  transition: 0.5s;
+}
+.bottom ul li:hover {
+  color: black;
+  cursor: pointer;
+}
+.bottom ul li .icon .h4 {
+  color: #ac4040;
+  transition: 0.5s;
+}
+.bottom ul li .icon .h4:hover {
+  color: red;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+@media only screen and (max-width: 767px) {
+  .footer .left-box .box {
+    justify-content: center;
+  }
+  .bottom .box {
+    text-align: center;
+  }
+  .bottom ul li .icon {
+    display: flex;
+    justify-content: center;
+  }
+}

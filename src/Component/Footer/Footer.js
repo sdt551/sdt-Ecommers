@@ -3,10 +3,13 @@ import "./Footer.css";
 import Logo from "../Nav/Img/logo.png";
 
 import {
+  FaFacebook,
   FaHeadphonesAlt,
+  FaInstagram,
   FaPiggyBank,
   FaShippingFast,
   FaWallet,
+  FaYoutube,
 } from "react-icons/fa";
 
 function Footer() {
@@ -14,7 +17,7 @@ function Footer() {
     <>
       <div className="footer container-fluid">
         <div className="row py-3 px-2">
-          <div className="left-box col col-md-3 col-12">
+          <div className="left-box col col-md-3 col-12 mt-3 pt-2">
             <div className="box d-flex align-items-center pb-3">
               <div className="icon-box">
                 <FaPiggyBank className="h4 text-danger" />
@@ -54,10 +57,10 @@ function Footer() {
             </div>
           </div>
 
-          <div className="right-box col col-md-9 col-12">
-            <div className="text-center">
+          <div className="right-box mt-3 col col-md-9 col-12 px-2">
+            <div className="header text-center my-3">
               <div
-                className="header d-flex justify-content-center align-items-center mb-3"
+                className="d-flex justify-content-center align-items-center mb-3"
                 style={{ cursor: "pointer" }}
               >
                 <img src={Logo} alt="" />
@@ -67,6 +70,43 @@ function Footer() {
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 Reiciendis distinctio ducimus animi quisquam ab. Aliquid!
               </p>
+            </div>
+
+            <div className="bottom row mt-2 d-flex justify-content-center">
+              <div className="box mb-2 col col-12 col-sm-6 col-md-4">
+                <h3>Your Account</h3>
+                <ul>
+                  <li>About</li>
+                  <li>Account</li>
+                  <li>Payment</li>
+                  <li>Sales</li>
+                </ul>
+              </div>
+              <div className="box mb-2 col col-12 col-sm-6 col-md-4">
+                <h3>Products</h3>
+                <ul>
+                  <li>Delivery</li>
+                  <li>Track Oder</li>
+                  <li>New Product</li>
+                  <li>Old Product</li>
+                </ul>
+              </div>
+              <div className="box mb-2 col col-12 col-sm-6 col-md-4">
+                <h3>Cotack Us</h3>
+                <ul>
+                  <li>017xx-xxxxxx</li>
+                  <li className="text-lowercase">
+                    shahadathossen551@gmail.com
+                  </li>
+                  <li>
+                    <div className="icon d-flex mt-2">
+                      <FaFacebook className="me-2 h4" />
+                      <FaYoutube className="me-2 h4" />
+                      <FaInstagram className="me-2 h4" />
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

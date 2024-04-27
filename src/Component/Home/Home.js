@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { HomeProduct } from "./HomeProduct";
 import { AiFillEye, AiFillHeart, AiOutlineShoppingCart } from "react-icons/ai";
 import {
@@ -122,9 +122,12 @@ function Home() {
                     );
                   })}
                 </div>
-                <button className="btn btn-danger py-1 px-3 mx-auto my-2">
+                <NavLink
+                  to="/shop"
+                  className="btn btn-danger py-1 px-3 mx-auto my-2"
+                >
                   Show More
-                </button>
+                </NavLink>
               </div>
             </div>
             <div className="right-box col col-md-3 col-12 d-flex justify-content-center ">
