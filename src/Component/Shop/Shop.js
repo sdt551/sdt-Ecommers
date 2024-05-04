@@ -71,8 +71,7 @@ function Shop({ shop, handleClick, allCategory, addToCart }) {
       ) : null}
       <div className="cotainer-fluid w-100 p-3">
         <div className="row text-uppercase">
-          <h2># Shop</h2>
-          <p>Home . shop</p>
+          <h2>Shop</h2>
         </div>
         <div className="row justify-content-around">
           <div className="left-box col col-12 col-md-3 my-3">

@@ -20,15 +20,7 @@ function Navbarr({ search, setSearch, searchProduct }) {
 
   return (
     <div className="header w-100">
-      <div className="top-header d-flex w-100 py-3 bg-light align-items-center border-bottom border-warning">
-        <div className="icon ms-3 text-info h5">
-          <LiaShippingFastSolid />
-        </div>
-        <div className="info ms-2 text-info h5">
-          <p>Free Shipping When Sopping</p>
-        </div>
-      </div>
-      <div className="mid-header d-flex p-3 bg-light w-100 justify-content-between align-items-center">
+      <div className="mid-header d-flex p-3 bg-success w-100 justify-content-between align-items-center">
         <div className="logo d-flex align-items-center">
           <img src={Logo} alt="" />
         </div>

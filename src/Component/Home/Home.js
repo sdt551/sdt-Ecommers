@@ -14,7 +14,6 @@ function Home({ addToCart }) {
   const [newProduct, setNewProduct] = useState("");
   const [newFeatured, setFeatured] = useState("");
   const [newTop, setTop] = useState("");
-  // const [newTop, setTop] = useState("");
 
   const [trendingProduct, settrendingProduct] = useState(HomeProduct);
 
