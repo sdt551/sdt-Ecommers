@@ -21,11 +21,11 @@ function App() {
     });
     if (exist) {
       alert("This product is allready added in cart");
+      setShop(HomeProduct);
     } else {
       setCart([...cart, { ...product, qty: 1 }]);
     }
   };
-  console.log(cart);
 
   //shop category filter
   const handleClick = (x) => {
@@ -68,6 +68,8 @@ function App() {
           handleClick={handleClick}
           allCategory={allCategory}
           addToCart={addToCart}
+          cart={cart}
+          setCart={setCart}
         />
         <Footer />
       </BrowserRouter>

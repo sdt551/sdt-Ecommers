@@ -1,3 +1,44 @@
+img {
+  cursor: pointer;
+}
+img:hover {
+  border: 1px solid aqua;
+}
+.prodduct-detail {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 400px;
+  border: 1px solid #f6f6f6;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  z-index: 99;
+}
+.zoomImg {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 100vh;
+  border: 1px solid #f6f6f6;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  z-index: 999;
+  overflow: scroll;
+}
+.zoomImg button {
+  width: 35px;
+  height: 35px;
+}
+.prodduct-detail button {
+  width: 35px;
+  height: 35px;
+}
 .left-box .category .box ul li {
   list-style-type: none;
   color: #4e4d4d;

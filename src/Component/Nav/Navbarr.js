@@ -32,7 +32,6 @@ function Navbarr({ search, setSearch, searchProduct }) {
       <div className="mid-header d-flex p-3 bg-light w-100 justify-content-between align-items-center">
         <div className="logo d-flex align-items-center">
           <img src={Logo} alt="" />
-          <h4>shahadat</h4>
         </div>
         <div className="search-box input-group w-25">
           <input
@@ -44,9 +43,9 @@ function Navbarr({ search, setSearch, searchProduct }) {
             placeholder="Search"
             onChange={handleChang}
           />
-          <Button onClick={searchProduct}>
+          <button className="btn btn-primary" onClick={searchProduct}>
             <CiSearch className="h5" />
-          </Button>
+          </button>
         </div>
 
         <div className="d-flex align-items-center">

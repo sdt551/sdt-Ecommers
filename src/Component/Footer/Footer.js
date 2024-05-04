@@ -17,7 +17,7 @@ function Footer() {
     <>
       <div className="footer container-fluid">
         <div className="row py-3 px-2">
-          <div className="left-box col col-md-3 col-12 mt-3 pt-2">
+          <div className="left-box col col-md-3 col-12 mt-3 pt-2 ps-3">
             <div className="box d-flex align-items-center pb-3">
               <div className="icon-box">
                 <FaPiggyBank className="h4 text-danger" />
@@ -66,13 +66,13 @@ function Footer() {
                 <img src={Logo} alt="" />
                 <h4>shahadat</h4>
               </div>
-              <p>
+              <p className="px-5">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 Reiciendis distinctio ducimus animi quisquam ab. Aliquid!
               </p>
             </div>
 
-            <div className="bottom row mt-2 d-flex justify-content-center">
+            <div className="bottom row mt-2 d-flex justify-content-center px-5">
               <div className="box mb-2 col col-12 col-sm-6 col-md-4">
                 <h3>Your Account</h3>
                 <ul>

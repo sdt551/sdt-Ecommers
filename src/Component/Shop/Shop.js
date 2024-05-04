@@ -1,11 +1,74 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Shop.css";
-import { Image } from "react-bootstrap";
-import { AiFillEye, AiFillHeart } from "react-icons/ai";
+import { Button, Image } from "react-bootstrap";
+import { AiFillEye, AiFillHeart, AiOutlineClose } from "react-icons/ai";
 
 function Shop({ shop, handleClick, allCategory, addToCart }) {
+  const [showDetail, setShowDetail] = useState(false);
+  const [detail, setDetail] = useState([]);
+  const [showImg, setShowImg] = useState(false);
+  const [zoomImg, setomZooImg] = useState([]);
+  // show Detail
+  const detailPage = (product) => {
+    setDetail(product);
+    setShowDetail(true);
+  };
+  // close Detail
+  const closeDetails = () => {
+    setShowDetail(false);
+    setShowImg(false);
+  };
+
+  // Show image
+  const handelImg = (img) => {
+    setShowDetail(false);
+    setShowImg(true);
+    setomZooImg(img);
+  };
   return (
     <>
+      {showImg ? (
+        <div className="zoomImg d-flex justify-content-between">
+          <div className="img-box d-flex w-100 justify-content-center align-items-center">
+            <img className="w-auto" src={zoomImg} alt="" />
+          </div>
+          <button className="btn btn-danger">
+            <AiOutlineClose onClick={closeDetails} className="h3" />
+          </button>
+        </div>
+      ) : null}
+
+      {showDetail ? (
+        <div className="prodduct-detail d-flex justify-content-between">
+          <div className="details text-center m-3">
+            <div className="img-box w-25 mx-auto">
+              <img
+                className="w-100"
+                src={detail.img}
+                alt=""
+                onClick={() => handelImg(detail.img)}
+              />
+            </div>
+            <div className="info text-uppercase px-5">
+              <h4 className="fw-bold py-1">{detail.name}</h4>
+              <h5 className="text-danger"> ${detail.price}</h5>
+              <p className="py-2">
+                A Screen Everyone Will Love Whether your family is streaming or
+                video chatting with friends tablet{" "}
+              </p>
+              <div
+                className="btn btn-primary text-uppercase py-1 px-2"
+                onClick={() => addToCart(detail)}
+              >
+                add to cart
+              </div>
+            </div>
+          </div>
+          <button className="btn btn-danger">
+            <AiOutlineClose onClick={closeDetails} className="h3" />
+          </button>
+        </div>
+      ) : null}
       <div className="cotainer-fluid w-100 p-3">
         <div className="row text-uppercase">
           <h2># Shop</h2>
@@ -38,6 +101,7 @@ function Shop({ shop, handleClick, allCategory, addToCart }) {
                 </ul>
               </div>
             </div>
+
             <div className="banner w-100">
               <div className="img-box mx-auto">
                 <Image
@@ -72,10 +136,14 @@ function Shop({ shop, handleClick, allCategory, addToCart }) {
                             className="w-100 rounded"
                             src={curElm.img}
                             alt=""
+                            onClick={() => handelImg(curElm.img)}
                           />
                           <div className="icon">
                             <AiFillHeart className="h6 my-1" />
-                            <AiFillEye className="h6 my-1" />
+                            <AiFillEye
+                              className="h6 my-1"
+                              onClick={() => detailPage(curElm)}
+                            />
                           </div>
                         </div>
                         <div className="detail text-center text-uppercase">
@@ -83,7 +151,7 @@ function Shop({ shop, handleClick, allCategory, addToCart }) {
                           <p className="text-danger my-1">{curElm.price}</p>
                           <button
                             onClick={() => addToCart(curElm)}
-                            className="btn text-uppercase py-1 px-2"
+                            className="btn btn-primary text-uppercase py-1 px-2"
                           >
                             Add to Cart
                           </button>

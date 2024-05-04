@@ -10,7 +10,7 @@ import {
   BiLogoYoutube,
 } from "react-icons/bi";
 
-function Home() {
+function Home({ addToCart }) {
   const [newProduct, setNewProduct] = useState("");
   const [newFeatured, setFeatured] = useState("");
   const [newTop, setTop] = useState("");
@@ -59,11 +59,11 @@ function Home() {
         </div>
 
         <div className="trending container-fluid w-100">
-          <div className="contain row py-3">
+          <div className="contain row px-2 py-3">
             <div className="left-box col col-md-9 col-12">
-              <div className="row header justify-content-around px-2">
+              <div className="row header justify-content-around ">
                 <div className="heading col col-md-7 col-sm-12 col-12 text-uppercase">
-                  <h3>Trending Product</h3>
+                  <h3 className="px-2">Trending Product</h3>
                 </div>
 
                 <div className="col col-md-5 col-sm-12 col-12 cate">
@@ -90,8 +90,8 @@ function Home() {
                 </div>
               </div>
 
-              <div className="products w-100 py-2 d-flex flex-column justify-content-center">
-                <div className="row contain w-100 justify-content-center">
+              <div className="products w-100 pb-2 d-flex flex-column justify-content-center">
+                <div className="row contain w-100  justify-content-center ">
                   {trendingProduct.map((curElm, index) => {
                     return (
                       <div
@@ -114,7 +114,10 @@ function Home() {
                             {curElm.name}
                           </h3>
                           <p className="text-warning my-1 ">${curElm.price}</p>
-                          <button className="btn btn-success py-1 px-2">
+                          <button
+                            className="btn btn-success py-1 px-2"
+                            onClick={() => addToCart(curElm)}
+                          >
                             Add to cart
                           </button>
                         </div>
@@ -195,7 +198,8 @@ function Home() {
         </div>
 
         <div className="product-type container-fluid w-100">
-          <div className="row w-100 px-2 py-3 justify-content-center ">
+          <div className="row w-100 px-2 justify-content-center ">
+            <h2 className="text-uppercase mb-3 px-2">Product Category</h2>
             <div className="col col-12 col-sm-6 col-md-4 mb-2">
               <div className="card bg-dark mx-1">
                 <div className="header text-center py-3 text-light">
@@ -208,10 +212,10 @@ function Home() {
                     return (
                       <div
                         key={index}
-                        className="d-flex justify-content-center text-light py-2 border border-info my-2"
+                        className="row justify-content-around text-light border border-info m-2 py-3"
                       >
                         <div
-                          className="img-box w-50 mb-3"
+                          className="img-box col-5"
                           style={{ height: "100px" }}
                         >
                           <img
@@ -221,7 +225,7 @@ function Home() {
                           />
                         </div>
 
-                        <div className="details ms-3">
+                        <div className="details col-6 px-2">
                           <h3 className="text-uppercase">{curElm.name}</h3>
                           <div>
                             <p className="text-danger py-1 h5">
@@ -235,7 +239,10 @@ function Home() {
                               <div className="icon-box">
                                 <AiFillHeart className="text-danger" />
                               </div>
-                              <button className="btn mx-1">
+                              <button
+                                className="btn mx-1"
+                                onClick={() => addToCart(curElm)}
+                              >
                                 <AiOutlineShoppingCart className=" icon text-danger mx-1 h5" />
                               </button>
                             </div>
@@ -259,10 +266,10 @@ function Home() {
                     return (
                       <div
                         key={index}
-                        className="d-flex justify-content-center text-light py-2 border border-info my-2"
+                        className="row justify-content-around text-light border border-info m-2 py-3"
                       >
                         <div
-                          className="img-box w-50 mb-3"
+                          className="img-box col-5"
                           style={{ height: "100px" }}
                         >
                           <img
@@ -272,7 +279,7 @@ function Home() {
                           />
                         </div>
 
-                        <div className="details ms-3">
+                        <div className="details col-6 px-3">
                           <h3 className="text-uppercase">{curElm.name}</h3>
                           <div>
                             <p className="text-danger py-1 h5">
@@ -286,7 +293,10 @@ function Home() {
                               <div className="icon-box">
                                 <AiFillHeart className="text-danger" />
                               </div>
-                              <button className="btn mx-1">
+                              <button
+                                className="btn mx-1"
+                                onClick={() => addToCart(curElm)}
+                              >
                                 <AiOutlineShoppingCart className=" icon text-danger mx-1 h5" />
                               </button>
                             </div>
@@ -310,10 +320,10 @@ function Home() {
                     return (
                       <div
                         key={index}
-                        className="d-flex justify-content-center text-light pb-2 py-2 border border-info my-2"
+                        className="row justify-content-around text-light border border-info m-2 py-3"
                       >
                         <div
-                          className="img-box w-50 mb-3"
+                          className="img-box col-5"
                           style={{ height: "100px" }}
                         >
                           <img
@@ -323,7 +333,7 @@ function Home() {
                           />
                         </div>
 
-                        <div className="details ms-3">
+                        <div className="details col-6 px-3">
                           <h3 className="text-uppercase">{curElm.name}</h3>
                           <div>
                             <p className="text-danger py-1 h5">
@@ -337,7 +347,10 @@ function Home() {
                               <div className="icon-box">
                                 <AiFillHeart className="text-danger" />
                               </div>
-                              <button className="btn mx-1">
+                              <button
+                                className="btn mx-1"
+                                onClick={() => addToCart(curElm)}
+                              >
                                 <AiOutlineShoppingCart className=" icon text-danger mx-1 h5" />
                               </button>
                             </div>
