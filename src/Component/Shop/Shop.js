@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Shop.css";
+import { Image } from "react-bootstrap";
 import { AiFillEye, AiFillHeart, AiOutlineClose } from "react-icons/ai";
 
 function Shop({ shop, handleClick, allCategory, addToCart }) {
