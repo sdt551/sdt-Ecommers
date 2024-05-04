@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "./Cart.css";
 import { NavLink } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
@@ -33,12 +32,9 @@ function Cart({ cart, setCart }) {
   };
   // remove Product
   const removeProduct = (product) => {
-    const exit = cart.find((x) => {
-      return x.id === product.id;
-    });
     setCart(
-      cart.filter((curElm) => {
-        return curElm.id !== product.id;
+      cart.filter((x) => {
+        return x.id !== product.id;
       })
     );
   };
