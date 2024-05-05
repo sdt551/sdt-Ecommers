@@ -1,7 +1,6 @@
 import React from "react";
 import "./Navbarr.css";
 import Logo from "./Img/logo.png";
-import { LiaShippingFastSolid } from "react-icons/lia";
 import { CiSearch, CiLogin } from "react-icons/ci";
 import { CiLogout } from "react-icons/ci";
 import { useAuth0 } from "@auth0/auth0-react";
