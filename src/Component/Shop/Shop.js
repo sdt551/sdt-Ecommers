@@ -30,7 +30,7 @@ function Shop({ shop, handleClick, allCategory, addToCart }) {
       {showImg ? (
         <div className="zoomImg d-flex justify-content-between">
           <div className="img-box d-flex w-100 justify-content-center align-items-center">
-            <img className="w-auto" src={zoomImg} alt="" />
+            <img className="mw-100" src={zoomImg} alt="" />
           </div>
           <button className="btn btn-danger">
             <AiOutlineClose onClick={closeDetails} className="h3" />
@@ -39,8 +39,8 @@ function Shop({ shop, handleClick, allCategory, addToCart }) {
       ) : null}
 
       {showDetail ? (
-        <div className="prodduct-detail d-flex justify-content-between">
-          <div className="details text-center m-3">
+        <div className="prodduct-detail d-flex justify-content-center">
+          <div className="details text-center p-3 w-100">
             <div className="img-box w-25 mx-auto">
               <img
                 className="w-100"

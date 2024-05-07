@@ -63,7 +63,7 @@ function Navbarr({ search, setSearch, searchProduct }) {
         </div>
       </div>
 
-      <div className="nav w-100 bg-secondary p-3 d-flex align-items-center justify-content-between">
+      <div className="nav w-100 bg-secondary p-3 d-flex align-items-center justify-content-between g-5">
         <div>
           {isAuthenticated ? (
             <div>

@@ -2,7 +2,12 @@ import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { Link, NavLink } from "react-router-dom";
 import { HomeProduct } from "./HomeProduct";
-import { AiFillEye, AiFillHeart, AiOutlineShoppingCart } from "react-icons/ai";
+import {
+  AiFillEye,
+  AiFillHeart,
+  AiOutlineClose,
+  AiOutlineShoppingCart,
+} from "react-icons/ai";
 import {
   BiLogoFacebook,
   BiLogoInstagram,
@@ -14,6 +19,13 @@ function Home({ addToCart }) {
   const [newProduct, setNewProduct] = useState("");
   const [newFeatured, setFeatured] = useState("");
   const [newTop, setTop] = useState("");
+
+  //show detail
+
+  const [showDetail, setShowDetail] = useState(false);
+  const [detail, setDetail] = useState([]);
+  const [showImg, setShowImg] = useState(false);
+  const [zoomImg, setomZooImg] = useState([]);
 
   const [trendingProduct, settrendingProduct] = useState(HomeProduct);
 
@@ -43,8 +55,69 @@ function Home({ addToCart }) {
     });
     setTop(topCategory);
   };
+
+  // show Detail
+  const detailPage = (product) => {
+    setDetail(product);
+    setShowDetail(true);
+  };
+  // close Detail
+  const closeDetails = () => {
+    setShowDetail(false);
+    setShowImg(false);
+  };
+  // Show image
+  const handelImg = (img) => {
+    setShowDetail(false);
+    setShowImg(true);
+    setomZooImg(img);
+  };
+
   return (
     <>
+      {showImg ? (
+        <div className="zoomImg d-flex justify-content-between">
+          <div className="img-box d-flex w-100 justify-content-center align-items-center">
+            <img className="mw-100" src={zoomImg} alt="" />
+          </div>
+          <button className="btn btn-danger">
+            <AiOutlineClose onClick={closeDetails} className="h3" />
+          </button>
+        </div>
+      ) : null}
+
+      {showDetail ? (
+        <div className="prodduct-detail d-flex justify-content-center">
+          <div className="details text-center p-3 w-100">
+            <div className="img-box w-25 mx-auto">
+              <img
+                className="w-100"
+                src={detail.img}
+                alt=""
+                onClick={() => handelImg(detail.img)}
+              />
+            </div>
+            <div className="info text-uppercase px-5">
+              <h4 className="fw-bold py-1">{detail.name}</h4>
+              <h5 className="text-danger"> ${detail.price}</h5>
+              <p className="py-2">
+                A Screen Everyone Will Love Whether your family is streaming or
+                video chatting with friends tablet{" "}
+              </p>
+              <div
+                className="btn btn-primary text-uppercase py-1 px-2"
+                onClick={() => addToCart(detail)}
+              >
+                add to cart
+              </div>
+            </div>
+          </div>
+          <button className="btn btn-danger">
+            <AiOutlineClose onClick={closeDetails} className="h3" />
+          </button>
+        </div>
+      ) : null}
+
       <div className="container-fluid home w-100">
         <div className="top-baner">
           <div className="content text-light pt-5 ps-5">
@@ -98,10 +171,15 @@ function Home({ addToCart }) {
                         className="box col col-12 col-sm-6 col-md-4 col-lg-3 p-2"
                       >
                         <div className="img-box d-flex ">
-                          <img className="rounded" src={curElm.img} alt="" />
+                          <img
+                            className="rounded"
+                            src={curElm.img}
+                            alt=""
+                            onClick={() => handelImg(curElm.img)}
+                          />
                           <div className="icon">
                             <div className="icon-box">
-                              <AiFillEye />
+                              <AiFillEye onClick={() => detailPage(curElm)} />
                             </div>
                             <div className="icon-box">
                               <AiFillHeart className="text-danger" />
