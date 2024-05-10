@@ -1,6 +1,5 @@
 import React from "react";
 import "./CheckOut.css";
-import { BiBorderRadius } from "react-icons/bi";
 
 function CheckOut({ chekOutTotalBal, cart }) {
   console.log(cart);
