@@ -6,7 +6,6 @@ function SignIN() {
     email: "",
     passowrd: "",
   });
-  const [err, setErr] = useState("");
 
   let values, names;
   const data = (e) => {
@@ -54,7 +53,7 @@ function SignIN() {
 
                 <div className="col-md-12">
                   <div className="form-group m-2 text-danger">
-                    <h5>{err}</h5>
+                    <h5>err</h5>
                   </div>
                 </div>
                 <div className="col-md-6">
