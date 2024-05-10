@@ -43,8 +43,17 @@ function Navbarr({ search, setSearch, searchProduct }) {
         </div>
 
         <div className="d-flex align-items-center">
+          <div className="btn btn-light py-1 px-2 me-2 h4">
+            <NavLink
+              to="/signup"
+              className="h5"
+              style={{ textDecoration: "none" }}
+            >
+              Signup
+            </NavLink>
+          </div>
           {isAuthenticated ? (
-            <div className="user d-flex align-items-center">
+            <div className="user d-flex align-items-center btn ">
               <div className="icon me-1">
                 <CiLogout className="h4" />
               </div>
@@ -57,7 +66,7 @@ function Navbarr({ search, setSearch, searchProduct }) {
               </button>
             </div>
           ) : (
-            <div className="user d-flex align-items-center">
+            <div className="user d-flex align-items-center btn btn-light py-1 px-2">
               <div className="icon me-1">
                 <CiLogin className="h4" />
               </div>

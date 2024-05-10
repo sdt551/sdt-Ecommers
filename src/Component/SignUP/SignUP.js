@@ -1,15 +1,8 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./SignUp.css";
-// import firebaseConfig from "../../FirbaseConfig";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  updateProfile,
-} from "firebase/auth";
 
 function SignUP() {
-  const auth = getAuth();
   const navigate = useNavigate();
 
   const [user, setUser] = useState({
@@ -34,28 +27,14 @@ function SignUP() {
     } else if (!lastName) {
       setErr("Enter your last name !");
     } else if (!email) {
-      setErr("Enter your emai !");
+      setErr("Enter your email !");
     } else if (!password) {
       setErr("Enter your password !");
     } else if (password.length < 7) {
       setErr("Password need minimum 8 charecter !");
     } else {
-      createUserWithEmailAndPassword(auth, firstName, email, password)
-        .then(() => {
-          updateProfile(auth.currentUser, {
-            displayName: firstName,
-            photoURL: "",
-          }).then(() => {
-            setErr("");
-            navigate("/");
-          });
-        })
-        .catch((error) => {
-          console.log(error.code);
-          if (error.code == "auth/invalid-email") {
-            setErr("Email already used");
-          }
-        });
+      setErr("Success");
+      navigate("/");
     }
   };
 
@@ -160,15 +139,6 @@ function SignUP() {
             </div>
           </div>
         </div>
-
-        {/* <h3>Create a Account</h3>
-        <form action="">
-          <input type="text" placeholder="FirstName" name="" id="" />
-          <input type="text" placeholder="LastName" name="" id="" />
-          <input type="email" placeholder="Your Email" name="" id="" />
-          <input type="password" placeholder="Password" name="" id="" />
-          <button>SignUp</button>
-        </form> */}
       </div>
     </div>
   );

@@ -51,16 +51,11 @@ function SignIN() {
                   </div>
                 </div>
 
-                <div className="col-md-12">
-                  <div className="form-group m-2 text-danger">
-                    <h5>err</h5>
-                  </div>
-                </div>
                 <div className="col-md-6">
                   <div className="form-group m-2">
                     <h5>
                       <NavLink
-                        to="/signin"
+                        to="/signup"
                         className="h5 text-primary"
                         style={{ textDecoration: "none" }}
                       >
