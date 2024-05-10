@@ -2,7 +2,7 @@ import "./Cart.css";
 import { NavLink } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 
-function Cart({ cart, setCart }) {
+function Cart({ cart, setCart, totalBal }) {
   // increase Quantity of cart product
 
   const incQty = (product) => {
@@ -37,6 +37,10 @@ function Cart({ cart, setCart }) {
         return x.id !== product.id;
       })
     );
+  };
+
+  const handelCheckOut = (total) => {
+    totalBal(total);
   };
 
   // total price
@@ -90,9 +94,9 @@ function Cart({ cart, setCart }) {
               <div className="quantity input-group mt-3">
                 <button
                   className="btn btn-warning px-2"
-                  onClick={() => incQty(curElm)}
+                  onClick={() => decQty(curElm)}
                 >
-                  +
+                  -
                 </button>
                 <input
                   className="form-control"
@@ -100,12 +104,13 @@ function Cart({ cart, setCart }) {
                   value={curElm.qty}
                   name=""
                   id=""
+                  onChange={(e) => e.preventDefault()}
                 />
                 <button
                   className="btn btn-warning px-2"
-                  onClick={() => decQty(curElm)}
+                  onClick={() => incQty(curElm)}
                 >
-                  -
+                  +
                 </button>
               </div>
             </div>
@@ -113,15 +118,23 @@ function Cart({ cart, setCart }) {
         })}
       </div>
 
-      <div className="row mx-3">
-        <div className="bottom mt-2">
+      <div className="row mx-3 justify-content-center">
+        <div className=" col-10 col-sm-6 col-md-4 mt-2">
           {cart.length > 0 && (
             <>
-              <div className="total">
-                <h4 className="text-uppercase text-danger py-2">
-                  sub total ${total}
-                </h4>
-                <button className="btn btn-warning px-3 py-1">Checkout</button>
+              <div className="card total p-2">
+                <div className="card-header">
+                  <h4 className="text-uppercase text-danger py-2">
+                    sub total <span className="float-end h4">${total}</span>
+                  </h4>
+                </div>
+                <NavLink
+                  to="/checkout"
+                  className="btn btn-primary px-3 py-1"
+                  onClick={() => handelCheckOut(total)}
+                >
+                  Checkout
+                </NavLink>
               </div>
             </>
           )}

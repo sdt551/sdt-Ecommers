@@ -133,13 +133,13 @@ function Home({ addToCart }) {
         <div className="trending container-fluid w-100">
           <div className="contain row px-2 py-3">
             <div className="left-box col col-md-9 col-12">
-              <div className="row header justify-content-around ">
-                <div className="heading col col-md-7 col-sm-12 col-12 text-uppercase">
-                  <h3 className="px-2">Trending Product</h3>
+              <div className="row header d-flex justify-content-center mx-2">
+                <div className="heading col-md-6 col-sm-12 col-12 text-uppercase">
+                  <h3 className="w-100">Trending Product</h3>
                 </div>
 
-                <div className="col col-md-5 col-sm-12 col-12 cate">
-                  <div className="d-flex justify-content-end">
+                <div className="cate col-md-6 col-sm-12 col-12 ">
+                  <div className="w-100 d-flex justify-content-end">
                     <h4
                       onClick={() => filterCate("new")}
                       className="p-2 border border-danger"

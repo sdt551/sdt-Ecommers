@@ -33,9 +33,13 @@ function Navbarr({ search, setSearch, searchProduct }) {
             placeholder="Search"
             onChange={handleChang}
           />
-          <button className="btn btn-primary" onClick={searchProduct}>
+          <NavLink
+            to="/shop"
+            className="btn btn-primary d-flex align-items-center"
+            onClick={searchProduct}
+          >
             <CiSearch className="h5" />
-          </button>
+          </NavLink>
         </div>
 
         <div className="d-flex align-items-center">

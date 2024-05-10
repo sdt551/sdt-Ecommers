@@ -13,6 +13,8 @@ function App() {
   const [shop, setShop] = useState(HomeProduct);
   //shop Search filter
   const [search, setSearch] = useState();
+  // check out balence
+  const [chekOutTotalBal, setchekOutTotalBal] = useState("");
 
   //add to cart
   const addToCart = (product) => {
@@ -55,6 +57,10 @@ function App() {
     }
   };
 
+  const totalBal = (checkOutBal) => {
+    setchekOutTotalBal(checkOutBal);
+  };
+
   return (
     <>
       <BrowserRouter>
@@ -70,6 +76,8 @@ function App() {
           addToCart={addToCart}
           cart={cart}
           setCart={setCart}
+          totalBal={totalBal}
+          chekOutTotalBal={chekOutTotalBal}
         />
         <Footer />
       </BrowserRouter>

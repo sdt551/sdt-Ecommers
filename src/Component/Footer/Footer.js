@@ -16,8 +16,8 @@ function Footer() {
   return (
     <>
       <div className="footer container-fluid">
-        <div className="row py-3 px-2">
-          <div className="left-box col col-md-3 col-12 mt-3 pt-2 ps-3">
+        <div className="row p-3 mt-3">
+          <div className="left-box col col-md-3 col-12">
             <div className="box d-flex align-items-center pb-3">
               <div className="icon-box">
                 <FaPiggyBank className="h4 text-danger" />
@@ -57,8 +57,8 @@ function Footer() {
             </div>
           </div>
 
-          <div className="right-box mt-3 col col-md-9 col-12 px-2">
-            <div className="header text-center my-3">
+          <div className="right-box col col-md-9 col-12">
+            <div className="header text-center">
               <div
                 className="d-flex justify-content-center align-items-center mb-3"
                 style={{ cursor: "pointer" }}
