@@ -98,7 +98,9 @@ function Navbarr({ search, setSearch, searchProduct }) {
         <div>
           {userDetails ? (
             <div>
-              <h5>{userDetails.firstName}</h5>
+              <h5 className="text-uppercase text-light">
+                {userDetails.firstName}
+              </h5>
               {/* <img
                 style={{ borderRadius: "50%" }}
                 src={user.picture}

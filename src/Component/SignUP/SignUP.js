@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./SignUp.css";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../FirbaseConfig";
@@ -8,6 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function SignUP() {
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     firstName: "",
     lastName: "",
@@ -25,7 +26,6 @@ function SignUP() {
   const { firstName, lastName, email, password } = user;
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (!firstName && !lastName && !email && !password) {
       setErr("Fail the all Details !");
     } else if (!firstName) {
@@ -52,6 +52,7 @@ function SignUP() {
         toast.success("Successful", {
           position: "top-center",
         });
+        navigate("/");
       } catch (error) {
         if (error.message === "Firebase: Error (auth/email-already-in-use).") {
           toast.success("Email already in used", {

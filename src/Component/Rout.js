@@ -7,6 +7,7 @@ import Contact from "./Contact/Contact";
 import CheckOut from "./CheckOut/CheckOut";
 import SignUP from "./SignUP/SignUP";
 import SignIN from "./SignIN/SignIN";
+import Error from "./Error/Error";
 
 function Rout({
   shop,
@@ -44,6 +45,7 @@ function Rout({
           path="/checkout"
           element={<CheckOut chekOutTotalBal={chekOutTotalBal} cart={cart} />}
         />
+        <Route path="/*" element={<Error />} />
       </Routes>
     </>
   );
