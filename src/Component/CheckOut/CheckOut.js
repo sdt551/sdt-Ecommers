@@ -2,7 +2,6 @@ import React from "react";
 import "./CheckOut.css";
 
 function CheckOut({ chekOutTotalBal, cart }) {
-  console.log(cart);
   return (
     <div className="container-fluid Check-out">
       <div className="row p-3 d-flex justify-content-center">

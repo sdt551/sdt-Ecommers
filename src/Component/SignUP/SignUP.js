@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./SignUp.css";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "../../FirbaseConfig";
+import { doc, setDoc } from "firebase/firestore";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function SignUP() {
-  const navigate = useNavigate();
-
   const [user, setUser] = useState({
     firstName: "",
     lastName: "",
@@ -18,8 +21,11 @@ function SignUP() {
     names = e.target.name;
     setUser({ ...user, [names]: values });
   };
+
   const { firstName, lastName, email, password } = user;
-  const handleSubmit = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
     if (!firstName && !lastName && !email && !password) {
       setErr("Fail the all Details !");
     } else if (!firstName) {
@@ -33,13 +39,32 @@ function SignUP() {
     } else if (password.length < 7) {
       setErr("Password need minimum 8 charecter !");
     } else {
-      setErr("Success");
-      navigate("/");
+      try {
+        await createUserWithEmailAndPassword(auth, email, password);
+        const userdtls = auth.currentUser;
+        if (userdtls) {
+          await setDoc(doc(db, "Users", userdtls.uid), {
+            email: userdtls.email,
+            firstName: firstName,
+            lastName: lastName,
+          });
+        }
+        toast.success("Successful", {
+          position: "top-center",
+        });
+      } catch (error) {
+        if (error.message === "Firebase: Error (auth/email-already-in-use).") {
+          toast.success("Email already in used", {
+            position: "top-center",
+          });
+        }
+      }
     }
   };
 
   return (
     <div className="Signup container-fluid">
+      <ToastContainer />
       <div className="row">
         <div className="col-12 col-sm-6 col-md-7 mx-auto">
           <div className="card m-2">
@@ -119,7 +144,7 @@ function SignUP() {
                         style={{ textDecoration: "none" }}
                       >
                         <span> </span>
-                        SignIn
+                        Sign-In
                       </NavLink>
                     </h5>
                   </div>

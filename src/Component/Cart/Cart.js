@@ -45,6 +45,7 @@ function Cart({ cart, setCart, totalBal }) {
 
   // total price
   const total = cart.reduce((price, item) => price + item.qty * item.price, 0);
+
   return (
     <div className="cart container-fluid">
       <div className="row mx-3">
