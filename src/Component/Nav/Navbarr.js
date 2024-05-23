@@ -48,7 +48,7 @@ function Navbarr({ search, setSearch, searchProduct }) {
   const [mobile, setMobile] = useState(false);
 
   return (
-    <div className="header w-100">
+    <div className="container-fluid header w-100">
       <div className="mid-header d-flex p-3 bg-success w-100 justify-content-between align-items-center">
         <div
           className="logo d-flex align-items-center"
@@ -98,7 +98,7 @@ function Navbarr({ search, setSearch, searchProduct }) {
         <div>
           {userDetails ? (
             <div>
-              <h5 className="text-uppercase text-light">
+              <h5 className="text-uppercase text-dark">
                 {userDetails.firstName}
               </h5>
               {/* <img
