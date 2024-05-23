@@ -42,7 +42,8 @@
 }
 @media (max-width: 768px) {
   .header .search-box {
-    width: 60% !important;
+    width: 40% !important;
+    margin: 0 10px !important;
   }
   .all-manu {
     display: none !important;
