@@ -7,29 +7,16 @@ import Nav from "react-bootstrap/Nav";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaBars, FaUser } from "react-icons/fa6";
 import { ImCross } from "react-icons/im";
-import { auth, db } from "../../FirbaseConfig";
-import { doc, getDoc } from "firebase/firestore";
+import { auth } from "../../FirbaseConfig";
 
-function Navbarr({ search, setSearch, searchProduct }) {
+function Navbarr({
+  search,
+  setSearch,
+  searchProduct,
+  userDetails,
+  setUserDetails,
+}) {
   const navigate = useNavigate();
-  // firebase profile
-  const [userDetails, setUserDetails] = useState(null);
-  const fetchUserData = async () => {
-    auth.onAuthStateChanged(async (user) => {
-      if (user) {
-        const docRef = doc(db, "Users", user.uid);
-        const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-          setUserDetails(docSnap.data());
-        }
-      } else {
-        console.log("User is not logged in");
-      }
-    });
-  };
-  useEffect(() => {
-    fetchUserData();
-  }, []);
 
   const handleLogout = async () => {
     try {
@@ -49,7 +36,7 @@ function Navbarr({ search, setSearch, searchProduct }) {
 
   return (
     <div className="container-fluid header w-100">
-      <div className="mid-header d-flex p-3 bg-success w-100 justify-content-between align-items-center">
+      <div className="mid-header d-flex p-3 bg-dark w-100 justify-content-between align-items-center">
         <div
           className="logo d-flex align-items-center"
           onClick={() => navigate("/")}
@@ -94,7 +81,7 @@ function Navbarr({ search, setSearch, searchProduct }) {
         </div>
       </div>
 
-      <div className="nav w-100 bg-secondary p-3 d-flex align-items-center justify-content-between g-5 manubar">
+      <div className="nav w-100 bg-light p-3 d-flex align-items-center justify-content-between g-5 manubar">
         <div>
           {userDetails ? (
             <div>

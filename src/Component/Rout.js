@@ -18,6 +18,7 @@ function Rout({
   setCart,
   totalBal,
   chekOutTotalBal,
+  userDetails,
 }) {
   return (
     <>
@@ -27,7 +28,14 @@ function Rout({
         <Route path="/" element={<Home addToCart={addToCart} />} />
         <Route
           path="/cart"
-          element={<Cart cart={cart} setCart={setCart} totalBal={totalBal} />}
+          element={
+            <Cart
+              cart={cart}
+              setCart={setCart}
+              totalBal={totalBal}
+              userDetails={userDetails}
+            />
+          }
         />
         <Route
           path="/shop"
@@ -43,7 +51,13 @@ function Rout({
         <Route path="/contact" element={<Contact />} />
         <Route
           path="/checkout"
-          element={<CheckOut chekOutTotalBal={chekOutTotalBal} cart={cart} />}
+          element={
+            <CheckOut
+              chekOutTotalBal={chekOutTotalBal}
+              cart={cart}
+              userDetails={userDetails}
+            />
+          }
         />
         <Route path="/*" element={<Error />} />
       </Routes>

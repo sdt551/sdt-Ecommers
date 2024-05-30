@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import Rout from "./Component/Rout";
 import Navbarr from "./Component/Nav/Navbarr";
 import "./App.css";
 import Footer from "./Component/Footer/Footer";
 import { HomeProduct } from "./Component/Home/HomeProduct";
+import { doc, getDoc } from "firebase/firestore";
+import { auth, db } from "./FirbaseConfig";
 
 function App() {
   // add to cart
@@ -61,6 +63,25 @@ function App() {
     setchekOutTotalBal(checkOutBal);
   };
 
+  // firebase profile
+  const [userDetails, setUserDetails] = useState(null);
+  const fetchUserData = async () => {
+    auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        const docRef = doc(db, "Users", user.uid);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          setUserDetails(docSnap.data());
+        }
+      } else {
+        console.log("User is not logged in");
+      }
+    });
+  };
+  useEffect(() => {
+    fetchUserData();
+  }, []);
+
   return (
     <>
       <BrowserRouter>
@@ -68,6 +89,8 @@ function App() {
           search={search}
           setSearch={setSearch}
           searchProduct={searchProduct}
+          userDetails={userDetails}
+          setUserDetails={setUserDetails}
         />
         <Rout
           shop={shop}
@@ -78,6 +101,7 @@ function App() {
           setCart={setCart}
           totalBal={totalBal}
           chekOutTotalBal={chekOutTotalBal}
+          userDetails={userDetails}
         />
         <Footer />
       </BrowserRouter>

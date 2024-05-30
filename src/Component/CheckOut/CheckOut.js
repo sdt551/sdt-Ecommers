@@ -1,7 +1,7 @@
 import React from "react";
 import "./CheckOut.css";
 
-function CheckOut({ chekOutTotalBal, cart }) {
+function CheckOut({ chekOutTotalBal, cart, userDetails }) {
   return (
     <div className="container-fluid Check-out">
       <div className="row p-3 d-flex justify-content-center">
@@ -19,6 +19,7 @@ function CheckOut({ chekOutTotalBal, cart }) {
                       type="text"
                       name="firstName"
                       className="form-control border-dark p-1"
+                      value={userDetails.firstName}
                     />
                   </div>
                 </div>
@@ -30,6 +31,7 @@ function CheckOut({ chekOutTotalBal, cart }) {
                       type="text"
                       name="lastName"
                       className="form-control border-dark p-1"
+                      value={userDetails.lastName}
                     />
                   </div>
                 </div>
@@ -41,6 +43,7 @@ function CheckOut({ chekOutTotalBal, cart }) {
                       type="number"
                       name="phoneNumber"
                       className="form-control border-dark p-1"
+                      required
                     />
                   </div>
                 </div>
@@ -52,6 +55,7 @@ function CheckOut({ chekOutTotalBal, cart }) {
                       type="email"
                       name="emailAddress"
                       className="form-control border-dark p-1"
+                      value={userDetails.email}
                     />
                   </div>
                 </div>
@@ -63,6 +67,7 @@ function CheckOut({ chekOutTotalBal, cart }) {
                       rows="3"
                       className="form-control border-dark p-1"
                       id=""
+                      required
                     />
                   </div>
                 </div>

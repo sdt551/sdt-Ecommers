@@ -2,9 +2,8 @@ import "./Cart.css";
 import { NavLink } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 
-function Cart({ cart, setCart, totalBal }) {
+function Cart({ cart, setCart, totalBal, userDetails }) {
   // increase Quantity of cart product
-
   const incQty = (product) => {
     const exist = cart.find((x) => {
       return x.id === product.id;
@@ -40,6 +39,9 @@ function Cart({ cart, setCart, totalBal }) {
   };
 
   const handelCheckOut = (total) => {
+    if (!userDetails) {
+      alert("Please login your account ");
+    }
     totalBal(total);
   };
 
@@ -49,7 +51,6 @@ function Cart({ cart, setCart, totalBal }) {
   return (
     <div className="cart container-fluid">
       <div className="row mx-3">
-        <h3>#Cart</h3>
         {cart.length === 0 && (
           <>
             <div className="empty-cart text-center my-2">
@@ -130,7 +131,7 @@ function Cart({ cart, setCart, totalBal }) {
                   </h4>
                 </div>
                 <NavLink
-                  to="/checkout"
+                  to={userDetails ? "/checkout" : "/signup"}
                   className="btn btn-primary px-3 py-1"
                   onClick={() => handelCheckOut(total)}
                 >
