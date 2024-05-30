@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Navbarr.css";
 import Logo from "./Img/logo.png";
 import { CiSearch, CiLogin } from "react-icons/ci";
