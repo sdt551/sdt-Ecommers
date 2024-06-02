@@ -168,35 +168,39 @@ function Home({ addToCart }) {
                     return (
                       <div
                         key={index}
-                        className="box col col-12 col-sm-6 col-md-4 col-lg-3 p-2"
+                        className="box col-12 col-sm-6 col-md-4 col-lg-3 p-2"
                       >
-                        <div className="img-box d-flex ">
-                          <img
-                            className="rounded"
-                            src={curElm.img}
-                            alt=""
-                            onClick={() => handelImg(curElm.img)}
-                          />
-                          <div className="icon">
-                            <div className="icon-box">
-                              <AiFillEye onClick={() => detailPage(curElm)} />
-                            </div>
-                            <div className="icon-box">
-                              <AiFillHeart className="text-danger" />
+                        <div className="card p-2">
+                          <div className="card-header img-box d-flex ">
+                            <img
+                              className="rounded"
+                              src={curElm.img}
+                              alt=""
+                              onClick={() => handelImg(curElm.img)}
+                            />
+                            <div className="icon">
+                              <div className="icon-box">
+                                <AiFillEye onClick={() => detailPage(curElm)} />
+                              </div>
+                              <div className="icon-box">
+                                <AiFillHeart className="text-danger" />
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div className="info">
-                          <h3 className="text-uppercase text-info">
-                            {curElm.name}
-                          </h3>
-                          <p className="text-warning my-1 ">${curElm.price}</p>
-                          <button
-                            className="btn btn-success py-1 px-2"
-                            onClick={() => addToCart(curElm)}
-                          >
-                            Add to cart
-                          </button>
+                          <div className="info card-body mt-2">
+                            <h3 className="text-uppercase text-dark">
+                              {curElm.name}
+                            </h3>
+                            <p className="text-warning py-1 text-danger">
+                              ${curElm.price}
+                            </p>
+                            <button
+                              className="btn btn-success py-1 px-2"
+                              onClick={() => addToCart(curElm)}
+                            >
+                              Add to cart
+                            </button>
+                          </div>
                         </div>
                       </div>
                     );

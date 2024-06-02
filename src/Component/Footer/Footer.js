@@ -15,7 +15,10 @@ import {
 function Footer() {
   return (
     <>
-      <div className="footer container-fluid">
+      <div
+        className="footer container-fluid"
+        style={{ backgroundColor: "#E8F0FE" }}
+      >
         <div className="row p-3 mt-3">
           <div className="left-box col col-md-3 col-12">
             <div className="box d-flex align-items-center pb-3">

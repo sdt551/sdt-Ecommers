@@ -128,9 +128,9 @@ function Shop({ shop, handleClick, allCategory, addToCart }) {
               <div className="product-container row justify-content-center">
                 {shop.map((curElm, index) => {
                   return (
-                    <div key={index} className="col col-sm-4 col-md-3 col-6">
-                      <div className=" border border-warning m-2 p-1">
-                        <div className="box d-flex w-50 mx-auto my-3">
+                    <div key={index} className="col-sm-4 col-md-3 col-6">
+                      <div className="card m-2 p-2">
+                        <div className="card-header box d-flex w-50 mx-auto my-3">
                           <img
                             className="w-100 rounded"
                             src={curElm.img}
@@ -145,7 +145,7 @@ function Shop({ shop, handleClick, allCategory, addToCart }) {
                             />
                           </div>
                         </div>
-                        <div className="detail text-center text-uppercase">
+                        <div className="card-body detail text-center text-uppercase">
                           <h3>{curElm.name}</h3>
                           <p className="text-danger my-1">{curElm.price}</p>
                           <button

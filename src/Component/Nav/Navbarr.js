@@ -36,7 +36,10 @@ function Navbarr({
 
   return (
     <div className="container-fluid header w-100">
-      <div className="mid-header d-flex p-3 bg-dark w-100 justify-content-between align-items-center">
+      <div
+        className="mid-header d-flex p-3 w-100 justify-content-between align-items-center"
+        style={{ backgroundColor: "#454964" }}
+      >
         <div
           className="logo d-flex align-items-center"
           onClick={() => navigate("/")}
@@ -81,11 +84,14 @@ function Navbarr({
         </div>
       </div>
 
-      <div className="nav w-100 bg-light p-3 d-flex align-items-center justify-content-between g-5 manubar">
+      <div
+        className="nav w-100 p-3 d-flex align-items-center justify-content-between g-5 manubar"
+        style={{ backgroundColor: "#E8F0FE" }}
+      >
         <div>
           {userDetails ? (
             <div>
-              <h5 className="text-uppercase text-dark">
+              <h5 className="text-uppercase text-light py-1 px-3 rounded bg-dark">
                 {userDetails.firstName}
               </h5>
               {/* <img
