@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Shop.css";
 import { Image } from "react-bootstrap";
 import { AiFillEye, AiFillHeart, AiOutlineClose } from "react-icons/ai";
+import { ToastContainer } from "react-toastify";
 
 function Shop({ shop, handleClick, allCategory, addToCart }) {
   const [showDetail, setShowDetail] = useState(false);
@@ -27,6 +28,7 @@ function Shop({ shop, handleClick, allCategory, addToCart }) {
   };
   return (
     <>
+      <ToastContainer />
       {showImg ? (
         <div className="zoomImg d-flex justify-content-between">
           <div className="img-box d-flex w-100 justify-content-center align-items-center">
@@ -146,7 +148,7 @@ function Shop({ shop, handleClick, allCategory, addToCart }) {
                           </div>
                         </div>
                         <div className="card-body detail text-center text-uppercase">
-                          <h3>{curElm.name}</h3>
+                          <h3 className="text-truncate">{curElm.name}</h3>
                           <p className="text-danger my-1">{curElm.price}</p>
                           <button
                             onClick={() => addToCart(curElm)}

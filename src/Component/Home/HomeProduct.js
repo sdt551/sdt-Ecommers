@@ -73,7 +73,7 @@ export const HomeProduct = [
   },
   {
     id: 10,
-    name: "Product10",
+    name: "Product",
     price: "25",
     img: "img/p10.jpeg",
     cat: "",
@@ -81,7 +81,7 @@ export const HomeProduct = [
   },
   {
     id: 11,
-    name: "Product11",
+    name: "Product",
     price: "25",
     img: "img/p11.jpeg",
     cat: "",

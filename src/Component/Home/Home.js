@@ -14,6 +14,7 @@ import {
   BiLogoTwitter,
   BiLogoYoutube,
 } from "react-icons/bi";
+import { ToastContainer } from "react-toastify";
 
 function Home({ addToCart }) {
   const [newProduct, setNewProduct] = useState("");
@@ -75,6 +76,7 @@ function Home({ addToCart }) {
 
   return (
     <>
+      <ToastContainer />
       {showImg ? (
         <div className="zoomImg d-flex justify-content-between">
           <div className="img-box d-flex w-100 justify-content-center align-items-center">
@@ -188,9 +190,9 @@ function Home({ addToCart }) {
                             </div>
                           </div>
                           <div className="info card-body mt-2">
-                            <h3 className="text-uppercase text-dark">
+                            <h2 className="text-uppercase text-dark text-truncate">
                               {curElm.name}
-                            </h3>
+                            </h2>
                             <p className="text-warning py-1 text-danger">
                               ${curElm.price}
                             </p>
@@ -243,7 +245,7 @@ function Home({ addToCart }) {
                       action=""
                     >
                       <input
-                        className="d-block my-2 p-1"
+                        className="d-block my-2 p-1 form-control"
                         type="email"
                         placeholder="E-mail"
                       />
@@ -251,17 +253,17 @@ function Home({ addToCart }) {
                         Sbuscribe
                       </button>
                     </form>
-                    <div className="icon-box d-flex justify-content-between mt-3 text-danger">
-                      <div className="icon p-1">
+                    <div className="icon-box d-flex justify-content-center mt-3 text-danger">
+                      <div className="icon p-1 mx-1">
                         <BiLogoFacebook className="h2" />
                       </div>
-                      <div className="icon p-1">
+                      <div className="icon p-1 mx-1">
                         <BiLogoTwitter className="h2" />
                       </div>
-                      <div className="icon p-1">
+                      <div className="icon p-1 mx-1">
                         <BiLogoInstagram className="h2" />
                       </div>
-                      <div className="icon p-1">
+                      <div className="icon p-1 mx-1">
                         <BiLogoYoutube className="h2" />
                       </div>
                     </div>
@@ -284,7 +286,7 @@ function Home({ addToCart }) {
             <div className="col col-12 col-sm-6 col-md-4 mb-2">
               <div className="card bg-dark mx-1">
                 <div className="header text-center py-3 text-light">
-                  <h2 className="border-bottom pb-2 mx-3 text-uppercase">
+                  <h2 className="border-bottom pb-2 mx-3 text-uppercase text-truncate">
                     New Product
                   </h2>
                 </div>
@@ -307,7 +309,9 @@ function Home({ addToCart }) {
                         </div>
 
                         <div className="details col-6 px-2">
-                          <h3 className="text-uppercase">{curElm.name}</h3>
+                          <h3 className="text-uppercase text-truncate">
+                            {curElm.name}
+                          </h3>
                           <div>
                             <p className="text-danger py-1 h5">
                               ${curElm.price}
@@ -315,7 +319,7 @@ function Home({ addToCart }) {
 
                             <div className="icon d-flex justify-content-between align-items-center">
                               <div className="icon-box">
-                                <AiFillEye />
+                                <AiFillEye onClick={() => detailPage(curElm)} />
                               </div>
                               <div className="icon-box">
                                 <AiFillHeart className="text-danger" />
@@ -338,7 +342,7 @@ function Home({ addToCart }) {
             <div className="col col-12 col-sm-6 col-md-4 mb-2">
               <div className="card bg-dark mx-1">
                 <div className="header text-center py-3 text-light">
-                  <h2 className="border-bottom pb-2 mx-3 text-uppercase">
+                  <h2 className="border-bottom pb-2 mx-3 text-uppercase text-truncate">
                     Featured Product
                   </h2>
                 </div>
@@ -361,7 +365,9 @@ function Home({ addToCart }) {
                         </div>
 
                         <div className="details col-6 px-3">
-                          <h3 className="text-uppercase">{curElm.name}</h3>
+                          <h3 className="text-uppercase text-truncate">
+                            {curElm.name}
+                          </h3>
                           <div>
                             <p className="text-danger py-1 h5">
                               ${curElm.price}
@@ -369,7 +375,7 @@ function Home({ addToCart }) {
 
                             <div className="icon d-flex justify-content-between align-items-center">
                               <div className="icon-box">
-                                <AiFillEye />
+                                <AiFillEye onClick={() => detailPage(curElm)} />
                               </div>
                               <div className="icon-box">
                                 <AiFillHeart className="text-danger" />
@@ -392,7 +398,7 @@ function Home({ addToCart }) {
             <div className="col col-12 col-sm-6 col-md-4 mb-2">
               <div className="card bg-dark mx-1">
                 <div className="header text-center py-3 text-light">
-                  <h2 className="border-bottom pb-2 text-uppercase">
+                  <h2 className="border-bottom pb-2 text-uppercase text-truncate">
                     Top Product
                   </h2>
                 </div>
@@ -415,7 +421,9 @@ function Home({ addToCart }) {
                         </div>
 
                         <div className="details col-6 px-3">
-                          <h3 className="text-uppercase">{curElm.name}</h3>
+                          <h3 className="text-uppercase text-truncate">
+                            {curElm.name}
+                          </h3>
                           <div>
                             <p className="text-danger py-1 h5">
                               ${curElm.price}
@@ -423,7 +431,7 @@ function Home({ addToCart }) {
 
                             <div className="icon d-flex justify-content-between align-items-center">
                               <div className="icon-box">
-                                <AiFillEye />
+                                <AiFillEye onClick={() => detailPage(curElm)} />
                               </div>
                               <div className="icon-box">
                                 <AiFillHeart className="text-danger" />

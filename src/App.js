@@ -7,6 +7,7 @@ import Footer from "./Component/Footer/Footer";
 import { HomeProduct } from "./Component/Home/HomeProduct";
 import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "./FirbaseConfig";
+import { Flip, toast } from "react-toastify";
 
 function App() {
   // add to cart
@@ -24,7 +25,17 @@ function App() {
       return x.id === product.id;
     });
     if (exist) {
-      alert("This product is allready added in cart");
+      toast.warn("This product has already been added!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Flip,
+      });
       setShop(HomeProduct);
     } else {
       setCart([...cart, { ...product, qty: 1 }]);

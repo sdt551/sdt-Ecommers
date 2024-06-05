@@ -1,6 +1,7 @@
 import "./Cart.css";
 import { NavLink } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
+import { Bounce, ToastContainer, toast } from "react-toastify";
 
 function Cart({ cart, setCart, totalBal, userDetails }) {
   // increase Quantity of cart product
@@ -40,7 +41,17 @@ function Cart({ cart, setCart, totalBal, userDetails }) {
 
   const handelCheckOut = (total) => {
     if (!userDetails) {
-      alert("Please login your account ");
+      toast.error("Please login your account!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Bounce,
+      });
     }
     totalBal(total);
   };
@@ -50,6 +61,7 @@ function Cart({ cart, setCart, totalBal, userDetails }) {
 
   return (
     <div className="cart container-fluid">
+      <ToastContainer />
       <div className="row mx-3">
         {cart.length === 0 && (
           <>
