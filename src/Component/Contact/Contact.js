@@ -39,7 +39,7 @@ function Contact() {
   return (
     <div className="container-fluid contact">
       <div className="row mx-2 p-3">
-        <div className="form col col-12 col-md-6 mx-auto p-2">
+        <div className="form col col-12 col-md-6 mx-auto p-2 bg-light">
           <h2 className="text-danger py-1">Contact Us</h2>
 
           <Form method="POST">

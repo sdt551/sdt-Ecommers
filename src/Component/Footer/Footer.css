@@ -9,6 +9,9 @@
 .bottom h3 {
   text-transform: uppercase;
 }
+.bottom ul {
+  padding-top: 10px !important;
+}
 .bottom ul li {
   list-style: none;
   color: #5f5e5e;

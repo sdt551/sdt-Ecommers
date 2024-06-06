@@ -65,7 +65,10 @@ function Cart({ cart, setCart, totalBal, userDetails }) {
       <div className="row mx-3">
         {cart.length === 0 && (
           <>
-            <div className="empty-cart text-center my-2">
+            <div
+              className="empty-cart text-center my-2 d-flex flex-column align-items-center justify-content-center"
+              style={{ height: "28vh" }}
+            >
               <h2>Your Shopping cart is empty</h2>
               <NavLink
                 to="/shop"
